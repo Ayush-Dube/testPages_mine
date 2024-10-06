@@ -1,14 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>testPage1</title>
 </head>
-<body>
-    <h1>Hello User!</h1>
-    <h3>Welcome to the test Page</h3>
-    <p>this is the First Page</p>
+<style>
+    body,
+    html {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+    }
 
+    .main {
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+        flex-direction: column;
+        border: 2px solid red;
+        padding-top:1rem;
+        padding-bottom:1rem;
+        height:95vh;
+
+    }
+    #mar1{
+        color: blue;
+        font-family: monospace;
+        font-size:x-large;
+        
+    }
+
+    .card{
+        display:flex;
+        justify-content: space-between;
+        /* border: 2px solid ; */
+        align-content: space-evenly;
+        width: 65vw;
+    }
+
+    .card2{
+        display: flex;
+        margin-top: 2rem;
+        width:65vw;
+        justify-content: center;
+
+    }
+    .msg{
+        border: 2px solid rgb(109, 165, 255);
+        width: 5rem;
+        text-align: center;
+        margin-inline: 5px;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10%;
+        overflow: hidden;
+    }
+</style>
+
+<body>
+
+    <div class="main">
+
+        <h1>Hello User!</h1>
+        <h2>Welcome</h2>
+        <h4>You have reached /index.html</h4>
+        <p><marquee direction="up" id="mar1" scrollamount="3">this is the First Page</marquee></p>
+        
+        
+        
+        <div class="card">
+            <a href="">Route 1</a>
+            <a href="">Route 2</a>
+            <a href="">Route 3</a>
+            
+        </div>
+        <br>
+        <div>
+            <input id="input1" placeholder="upto 5 letter word" ><button style="margin-inline-start:5px;" onclick="show_This()">Submit</button>
+        </div>
+
+        <div class="card2">
+            <div class="msg"></div>
+            <div class="msg"></div>
+            <div class="msg"></div>
+
+        </div>
+    </div>
 </body>
+<script>
+    function show_This(){
+        console.log("hi")
+        let msg1 = document.getElementById("input1").value 
+
+        msg1 = msg1.slice(0,5)
+
+        // document.querySelectorAll('.msg').innerText = msg
+        //this return a list of all msg class , map over them
+        // therefore store the node in a variable
+
+        allDiv = document.querySelectorAll('.msg')
+
+
+
+        // console.log(allDiv)
+        allDiv.forEach(element => {element.innerText = msg1
+            
+        });
+
+
+        document.getElementById("input1").value = ""
+        // setTimeout(document.getElementById("input1").value = "",500)
+    }
+</script>
+
 </html>
